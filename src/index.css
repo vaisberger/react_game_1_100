@@ -1,0 +1,47 @@
+:root {
+  line-height: 1.5;
+  background-color:rgb(6, 6, 6);
+}
+
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+h1 {
+  font-family:fantasy;
+  font-size: 5rem;
+  text-transform: uppercase;
+  animation: glow 2s ease-in-out infinite alternate;
+  text-align: center;
+}
+
+button {
+  border-radius: 8px;
+  margin-right: 10px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #87f2fe;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 30px #52d0de;
+  }
+  to {
+    text-shadow: 0 0 50px #5dc9d5, 0 0 10px #87f2fe;
+  }
+}
+
+
+
+
