@@ -1,24 +1,14 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
-
+import { open } from './login.jsx'
+import Players from './Players.jsx'
 function App() {
-  const [count, setCount] = useState(0)
-  return(
- <div>
-  <h1>Get to 100</h1>
-  <button class="add">Add player</button>
-  <button class="start">Start game</button>
- </div>
-  );
-}
-/* users and their boards*/ 
-const User=(user)=>{
-  return(  
-  <div>
-    <h1>{user.name}</h1>
-    <h1>{user.score}</h1>
-  </div>)
-}
+    return (
+      <div>
+        <h1>Get to 100</h1>
+        <div class="addplayer"><button type="button" onClick={() => open('newPlayer')}>Add Player</button></div>
+        <button class="start">Start game </button>
+        <Players/>
+      </div>
+    );
+  }
 export default App
