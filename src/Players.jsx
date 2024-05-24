@@ -3,7 +3,7 @@ import { exit } from './login.jsx'
 function Players() {
     const [pname, setName] = useState('');
     const [password, setPassword] = useState('');
-    const [count, setCount] = useState(0);
+    const [score, setScore] = useState(0);
     const [players, setPlayers] = useState(() => {
         // Retrieve users from local storage or initialize with an empty array
         const savedPlayers = localStorage.getItem('players');
@@ -15,6 +15,11 @@ function Players() {
     const handlePasswordChange = (event) => {
         setPassword(event.target.value);
     }
+    const addTblRow=()=>{
+      const row=document.createElement('tr');
+      row.innerHTML='<p>Player: ' +pname+ '<br></br>'+'Score: '+score+'<p>'
+      document.getElementById('tbl').appendChild(row);
+    }
     const handleSubmit = (event) => {
         event.preventDefault();
     
@@ -22,35 +27,42 @@ function Players() {
             id: players.length + 1,
             pname,
             password,
+            score
         };
         const updatedPlayers = [...players, newPlayer];
         setPlayers(updatedPlayers);
-        localStorage.setItem('players', JSON.stringify(updatedUsers));
+        localStorage.setItem('players', JSON.stringify(updatedPlayers));
     
         // Clear the input fields
         setName('');
         setPassword('');
+        exit('newPlayer');
+        addTblRow();
     }
     return(
+      <div>
         <div class="grid-container">
         <div class="grid-item">
           <form id="newPlayer" onSubmit={handleSubmit}>
-            <span class="exit" onClick={() => exit('newPlayer')}></span>
+            <span className="exit" onClick={() => exit('newPlayer')}></span>
             <div class="input-group">
               <label>Name: </label>
               <input type="text" value={pname} onChange={handleNameChange} required />
             </div>
             <div class="input-group">
               <label>Password:</label>
-              <input type="text" value={password} onChange={handlePasswordChange} required maxlength="8" />
+              <input type="text" value={password} onChange={handlePasswordChange} required maxLength="8" />
             </div>
             <div class="grid-item" >
               <button class="addbtn" type="submit">Add</button>
             </div>
-            <p>If you are not registered, <button class="clickhere" type="button" onclick="">click here</button> to
+            <p>If you are not registered, <button class="clickhere" type="button" onClick="">click here</button> to
               register.</p>
           </form>
         </div>
+      </div>
+      <table id='tbl'> 
+      </table>
       </div>
     )
 } 
