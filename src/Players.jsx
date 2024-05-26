@@ -1,37 +1,36 @@
 import React, { useState } from 'react';
-import { exit } from './login.jsx'
-function Players() {
+import { exit } from './login.jsx';
+import {addRow} from './Board.jsx';
+export const isPlaying=[];
+export function Players() {
   const [pname, setName] = useState('');
   const [password, setPassword] = useState('');
-  const [score, setScore] = useState(0);
+  const [scores, setScores] = useState([]);
   const [players, setPlayers] = useState(() => {
     // Retrieve users from local storage or initialize with an empty array
     const savedPlayers = localStorage.getItem('players');
     return savedPlayers ? JSON.parse(savedPlayers) : [];
   });
-  const handleNameChange = (event) => {
-    setName(event.target.value);
-  }
-  const handlePasswordChange = (event) => {
-    setPassword(event.target.value);
-  }
   const addTblRow = () => {
     const row = document.createElement('tr');
-    row.innerHTML = '<p>Player: ' + pname + '<br></br>' + 'Score: ' + score + '<p>'
+    row.innerHTML = '<p>Player: ' + pname + '<br></br>' + 'Scores: ' + scores + '<p>'
     document.getElementById('tbl').appendChild(row);
   }
   const handleSubmit = (event) => {
     event.preventDefault();
     const Players = JSON.parse(localStorage.getItem('players'));
-    const index = Players.findIndex(u => u.name === pname);
+    let index=-1;
+    if(Players!==null){
+      index = Players.findIndex(elem => elem.pname === pname);
+    }
     if (index !== -1) {                                            /**לבדוק שעובד */
-      setScore(Players[index].score);
+      setScores(Players[index].scores);
     } else {
       const newPlayer = {
         id: players.length + 1,
         pname,
         password,
-        score
+        scores
       };
       const updatedPlayers = [...players, newPlayer];
       setPlayers(updatedPlayers);
@@ -42,6 +41,14 @@ function Players() {
     setPassword('');
     exit('newPlayer');
     addTblRow();
+    isPlaying.push( { 
+      pname: pname,
+      scores:scores,
+    });
+    addRow({ 
+      pname: pname,
+      scores:scores,
+    });
   }
   return (
     <div>
@@ -51,11 +58,11 @@ function Players() {
             <span className="exit" onClick={() => exit('newPlayer')}></span>
             <div class="input-group">
               <label>Name: </label>
-              <input type="text" value={pname} onChange={handleNameChange} required />
+              <input type="text" value={pname} onChange={e=>setName(e.target.value)} required />
             </div>
             <div class="input-group">
               <label>Password:</label>
-              <input type="text" value={password} onChange={handlePasswordChange} required maxLength="8" />
+              <input type="text" value={password} onChange={e=>setPassword(e.target.value)} required maxLength="8" />
             </div>
             <div class="grid-item" >
               <button class="addbtn" type="submit">Add</button>

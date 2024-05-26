@@ -1,6 +1,6 @@
 :root {
   line-height: 1.5;
-  background-color:rgb(6, 6, 6);
+  background-color:black;
 }
 
 
@@ -46,12 +46,14 @@ h2{
   font-weight:500;
   font-family:fantasy;
 }
+h3{
+  color:white;
+}
 .grid-container {
   display: grid;
   grid-template-columns: auto auto ;
   height: 100px;
 }
-
 .grid-item {
   padding: 20px;
   font-size: 1em;
@@ -86,6 +88,14 @@ h2{
 .addbtn{
   padding: 0.3em 0.5em;
 }
+#loginplayers{
+  visibility: visible;
+}
+#game{
+  visibility: hidden;
+}
+
+
 @keyframes glow {
   from {
     text-shadow: 0 0 30px #52d0de;
