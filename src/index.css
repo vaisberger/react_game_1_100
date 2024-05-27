@@ -4,14 +4,6 @@
 }
 
 
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
-
 h1 {
   font-family:fantasy;
   font-size: 5rem;
@@ -38,9 +30,11 @@ button {
   background-color: pink;
   font-family:fantasy;
   border: solid 3px white;
+  font-size: 20px;
 }
 tr,td{
   border: solid 15px white;
+  font-size: 30px;
 }
 #trb{
   width: 60%;
@@ -50,18 +44,18 @@ tr,td{
 #tbl{
   width: 100%;
   margin-top: 10px;
-  background-color:#5dc9d5;
+  background-color:white;
   font-family:fantasy;
   border:solid 3px white;
   visibility: hidden;
 }
 #trp{
   width: 60%;
-  background-color: #033e45;
+  background-color: #5dc9d5;
   font-family:fantasy;
 }
 h2{
-  font-weight:500;
+  font-weight:40px;
   font-family:fantasy;
 }
 h3{
@@ -77,6 +71,8 @@ h3{
   font-size: 1em;
   text-align: center;
 }
+p{word-spacing: 15px;}
+
 #newPlayer{
   background-color: lightblue;
   border-radius: 8px;
@@ -112,25 +108,17 @@ h3{
 #game{
   display: none;
 }
-.grid-1 {
-  display: grid;
-  grid-template-columns: auto auto auto;
-  background-color: #2196F3;
-  padding: 10px;
+.exitorgame{
+  display: none;
 }
-.grid-i {
-  background-color: rgba(255, 255, 255, 0.8);
-  color: #87f2fe;
-  border: 1px solid rgba(0, 0, 0, 0.8);
-  padding: 20px;
-  font-size: 30px;
-  text-align: center;
-}
+
 .box{
   border:solid 3px white;
-  pointer-events:none;
-  opacity: 50%;
+  pointer-events:all;
+  opacity: 100%;
+  display: block;
 }
+
 @keyframes glow {
   from {
     text-shadow: 0 0 30px #52d0de;

@@ -10,7 +10,7 @@ const onPlayerclick=(index)=>{
     <div id="main">
       <h1>Get to 100</h1>
       <div id="addplayer"><button type="button" onClick={() => open('newPlayer')}>Add Player</button></div>
-        <Players/>
+        <Players id="pl"/>
     </div>
   );
 }

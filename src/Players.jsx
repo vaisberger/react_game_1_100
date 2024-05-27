@@ -17,7 +17,7 @@ export function Players() {
     document.getElementById('tbl').style.visibility = "visible";
     const row = document.createElement('tr');
     row.id = "trp"
-    row.innerHTML = '<p>Player: ' + pname + '<br></br>' + 'Scores: ' + scores + '<p>'
+    row.innerHTML = '<p>Player: ' + pname  + ' Scores: ' + scores + '<p>'
     document.getElementById('tbl').appendChild(row);
   }
 
@@ -58,8 +58,15 @@ export function Players() {
   }
 const handelstart=(id1,id2)=>{
     exitopen(id1,id2);
-}
+    document.getElementById('addplayer').style.display="none";
 
+}
+const rand=()=>{
+  return(Math. floor(Math. random() * (99 - 0 + 1)))
+}
+const avr=(p)=>{
+
+}
   return (
     <div>
       <div id="loginplayers">
@@ -75,8 +82,6 @@ const handelstart=(id1,id2)=>{
               <div class="grid-item" >
                 <button class="addbtn" type="submit">Add</button>
               </div>
-              <p>If you are not registered, <button class="clickhere" type="button" onClick="">click here</button> to
-                register.</p>
             </form>
           </div>
         </div>
@@ -84,11 +89,21 @@ const handelstart=(id1,id2)=>{
         </table>
       </div>
       <div id="game">
+        <table>
+          <tbody>
+          {playerLst.map((player) => (
+            avr(player)?
+            <tr>
+              <p>Player: +{player.pname}+Scores:  + {player.scores}</p>
+            </tr>:null
+          ))}
+          </tbody>
+        </table>
         <table id="board">          
         <tbody>
           {playerLst.map((player) => (
             <tr>
-              <Board id={player.index} value1={player.pname} value2={player.scores}/>
+              <Board id={player.index} value1={player.pname} value2={player.scores} value3={rand}/>
             </tr>
           ))}
         </tbody></table>
