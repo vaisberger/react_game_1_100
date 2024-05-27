@@ -56,12 +56,14 @@ export function Players() {
     // Update the state with the new list
     setList(currentList);
   }
-
+const handelstart=(id1,id2)=>{
+    exitopen(id1,id2);
+}
 
   return (
     <div>
       <div id="loginplayers">
-        <button class="start" type='button' onClick={() => exitopen('loginplayers', 'game')}>Start game </button>
+        <button class="start" type='button' onClick={() => handelstart('loginplayers', 'game')}>Start game </button>
         <div class="grid-container">
           <div class="grid-item">
             <form id="newPlayer" onSubmit={handleSubmit}>
@@ -85,8 +87,8 @@ export function Players() {
         <table id="board">          
         <tbody>
           {playerLst.map((player) => (
-            <tr key={player.index}>
-              <Board value1={player.pname} value2={player.scores}/>
+            <tr>
+              <Board id={player.index} value1={player.pname} value2={player.scores}/>
             </tr>
           ))}
         </tbody></table>

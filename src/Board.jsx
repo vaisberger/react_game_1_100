@@ -4,7 +4,6 @@ export function Board({value1,value2}) {
     const [scores, setScores] = useState(value2);
     const [steps, setSteps] = useState(0);
     const [num, setNum] = useState(0);
-    const[playerturn,setTurn]=useState();
     const Updatestep=()=>{
         setSteps(steps+1);
         is100();
@@ -44,7 +43,7 @@ export function Board({value1,value2}) {
         Updatestep();
     }
     return (
-        <div>
+        <div class="box">
               <p>Player: {pname}
                 <br></br>
                 Number: {num}

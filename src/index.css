@@ -126,7 +126,11 @@ h3{
   font-size: 30px;
   text-align: center;
 }
-
+.box{
+  border:solid 3px white;
+  pointer-events:none;
+  opacity: 50%;
+}
 @keyframes glow {
   from {
     text-shadow: 0 0 30px #52d0de;
