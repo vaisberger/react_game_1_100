@@ -31,15 +31,33 @@ button {
   background-color: #87f2fe;
   cursor: pointer;
   transition: border-color 0.25s;
+  margin-left: 4px;
 }
-table{
+#board{
+  width: 100%;
+  background-color: pink;
+  font-family:fantasy;
+  border: solid 3px white;
+}
+tr,td{
+  border: solid 15px white;
+}
+#trb{
+  width: 60%;
+  background-color: palevioletred;
+  font-family:fantasy;
+}
+#tbl{
   width: 100%;
   margin-top: 10px;
+  background-color:#5dc9d5;
+  font-family:fantasy;
+  border:solid 3px white;
+  visibility: hidden;
 }
-td,tr{
-  border: solid 3px white;
+#trp{
   width: 60%;
-  background-color: #5dc9d5;
+  background-color: #033e45;
   font-family:fantasy;
 }
 h2{
@@ -70,7 +88,7 @@ h3{
   position:relative;
   z-index:10;
   font-size: 20px;
-  visibility: hidden;
+  display: none;
 }
 .exit{
   cursor: pointer;
@@ -89,12 +107,25 @@ h3{
   padding: 0.3em 0.5em;
 }
 #loginplayers{
-  visibility: visible;
+  display: block;
 }
 #game{
-  visibility: hidden;
+  display: none;
 }
-
+.grid-1 {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  background-color: #2196F3;
+  padding: 10px;
+}
+.grid-i {
+  background-color: rgba(255, 255, 255, 0.8);
+  color: #87f2fe;
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  font-size: 30px;
+  text-align: center;
+}
 
 @keyframes glow {
   from {
