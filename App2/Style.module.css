@@ -1,5 +1,4 @@
 body {
-<<<<<<< HEAD
   margin: 0;
   display: flex;
   place-items: center;
@@ -176,42 +175,3 @@ h3 {
     text-shadow: 0 0 50px #3FA649, 0 0 10px #3FA649;
   }
 }
-=======
-    margin: 0;
-    display: flex;
-    place-items: center;
-    min-width: 320px;
-    min-height: 100vh;
-  }
-  .WelcomeContainer {
-    margin-left: 460px;  
-}
-  
- .title {
-    font-family:fantasy;
-    font-size: 5rem;
-    text-transform: uppercase;
-    animation: glow 2s ease-in-out infinite alternate;
-    text-align: center;
-  }
-  
-  .WelcomeB{
-    border-radius: 8px;
-    margin-top: 10px;
-    border: 1px solid transparent;
-    padding: 0.6em 1.2em;
-    font-size: 1em;
-    font-weight: bolder;
-    font-family: inherit;
-    background-color: lightgrey;
-    cursor: pointer;
-    transition: border-color 0.25s;
-    margin-left: 40px;
-  }
-
-  
-  
-  
-  
-  
->>>>>>> 48764ee9870e771cb41854bc5c6a2555d38d0a41

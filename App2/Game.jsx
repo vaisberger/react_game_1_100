@@ -37,11 +37,8 @@ export function Game() {
         setCurrentTurn(currentTurn => (currentTurn + 1) % CurrentPlayers.length);
     }
 
-<<<<<<< HEAD
 
 
-=======
->>>>>>> 48764ee9870e771cb41854bc5c6a2555d38d0a41
     function calculateAverage(array) {
         if (array.length === 0) return 0;
         const sum = array.reduce((acc, val) => acc + val, 0);
