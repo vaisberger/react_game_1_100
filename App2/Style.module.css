@@ -1,15 +1,10 @@
-body {
-    margin: 0;
-    display: flex;
-    place-items: center;
-    min-width: 320px;
-    min-height: 100vh;
+:root {
+    line-height: 1.5;
+    background-color:black;
   }
-  .WelcomeContainer {
-    margin-left: 460px;  
-}
   
- .title {
+  
+  h1{
     font-family:fantasy;
     font-size: 5rem;
     text-transform: uppercase;
@@ -17,7 +12,7 @@ body {
     text-align: center;
   }
   
-  .WelcomeB{
+  button {
     border-radius: 8px;
     margin-top: 10px;
     border: 1px solid transparent;
@@ -25,44 +20,31 @@ body {
     font-size: 1em;
     font-weight: bolder;
     font-family: inherit;
-    background-color:#3FA649;
+    background-color: #87f2fe;
     cursor: pointer;
     transition: border-color 0.25s;
-    margin-left: 40px;
+    margin-left: 4px;
   }
   #board{
     width: 100%;
     background-color: pink;
     font-family:fantasy;
     border: solid 3px white;
+    font-size: 20px;
   }
-  tr,td{
-    border: solid 15px white;
-  }
-  #trb{
-    width: 60%;
-    background-color: palevioletred;
-    font-family:fantasy;
-  }
+  
   #tbl{
     width: 100%;
     margin-top: 10px;
-    background-color:#5dc9d5;
+    background-color:white;
     font-family:fantasy;
     border:solid 3px white;
     visibility: hidden;
   }
   #trp{
     width: 60%;
-    background-color: #033e45;
+    background-color: #5dc9d5;
     font-family:fantasy;
-  }
-  h2{
-    font-weight:500;
-    font-family:fantasy;
-  }
-  h3{
-    color:white;
   }
   .grid-container {
     display: grid;
@@ -74,6 +56,8 @@ body {
     font-size: 1em;
     text-align: center;
   }
+  p{word-spacing: 15px;}
+  
   #newPlayer{
     background-color: lightblue;
     border-radius: 8px;
@@ -94,46 +78,30 @@ body {
     content:'❌';
     margin-left: 270px;
   }
-  .clickhere{
-    background-color:lightblue;
-    color: mediumblue;
-    text-decoration: underline;
-    padding: 0.3em 0.5em;
-  }
-  .addbtn{
-    padding: 0.3em 0.5em;
-  }
+  
   #loginplayers{
     display: block;
   }
   #game{
     display: none;
   }
-  .grid-1 {
-    display: grid;
-    grid-template-columns: auto auto auto;
-    background-color: #2196F3;
-    padding: 10px;
+  .exitorgame{
+    display: none;
   }
-  .grid-i {
-    background-color: rgba(255, 255, 255, 0.8);
-    color: #87f2fe;
-    border: 1px solid rgba(0, 0, 0, 0.8);
-    padding: 20px;
-    font-size: 30px;
-    text-align: center;
-  }
+  
   .box{
     border:solid 3px white;
-    pointer-events:none;
-    opacity: 50%;
+    pointer-events:all;
+    opacity: 100%;
+    display: block;
   }
+  
   @keyframes glow {
     from {
-      text-shadow: 0 0 30px #3FA649;
+      text-shadow: 0 0 30px #52d0de;
     }
     to {
-      text-shadow: 0 0 50px #3FA649, 0 0 10px #3FA649;
+      text-shadow: 0 0 50px #5dc9d5, 0 0 10px #87f2fe;
     }
   }
   
