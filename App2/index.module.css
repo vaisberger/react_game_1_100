@@ -1,0 +1,42 @@
+body{
+  line-height: 1.5;
+
+}
+
+.gameContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-left: 415px;
+}
+.title{
+  font-family:fantasy;
+  font-size: 4rem;
+  text-transform: uppercase;
+  animation: glow 2s ease-in-out infinite alternate;
+
+}
+
+.gameButton {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  font-size: 1em;
+  background-color: lightgrey;
+
+}
+
+
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 30px #3FA649;
+  }
+  to {
+    text-shadow: 0 0 50px #3FA649, 0 0 10px #3FA649;
+  }
+}
+
+
+
+
