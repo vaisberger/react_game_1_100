@@ -38,8 +38,6 @@ export function Game() {
         setCurrentTurn(currentTurn=> (currentTurn + 1) % CurrentPlayers.length); 
     }
 
-    
-
     function calculateAverage(array) {
         if (array.length === 0) return 0;
         const sum = array.reduce((acc, val) => acc + val, 0);
