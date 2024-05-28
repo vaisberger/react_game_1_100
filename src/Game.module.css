@@ -4,7 +4,7 @@
   }
   
   
-  .title{
+  h1{
     font-family:fantasy;
     font-size: 5rem;
     text-transform: uppercase;
@@ -12,7 +12,7 @@
     text-align: center;
   }
   
-  .button {
+  button {
     border-radius: 8px;
     margin-top: 10px;
     border: 1px solid transparent;
@@ -25,13 +25,14 @@
     transition: border-color 0.25s;
     margin-left: 4px;
   }
-  .board{
+  #board{
     width: 100%;
     background-color: pink;
     font-family:fantasy;
     border: solid 3px white;
     font-size: 20px;
   }
+  
   #tbl{
     width: 100%;
     margin-top: 10px;
@@ -44,13 +45,6 @@
     width: 60%;
     background-color: #5dc9d5;
     font-family:fantasy;
-  }
-  h2{
-    font-weight:40px;
-    font-family:fantasy;
-  }
-  h3{
-    color:white;
   }
   .grid-container {
     display: grid;
@@ -84,15 +78,7 @@
     content:'❌';
     margin-left: 270px;
   }
-  .clickhere{
-    background-color:lightblue;
-    color: mediumblue;
-    text-decoration: underline;
-    padding: 0.3em 0.5em;
-  }
-  .addbtn{
-    padding: 0.3em 0.5em;
-  }
+  
   #loginplayers{
     display: block;
   }

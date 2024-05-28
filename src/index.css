@@ -46,13 +46,6 @@ button {
   background-color: #5dc9d5;
   font-family:fantasy;
 }
-h2{
-  font-weight:40px;
-  font-family:fantasy;
-}
-h3{
-  color:white;
-}
 .grid-container {
   display: grid;
   grid-template-columns: auto auto ;
@@ -85,15 +78,7 @@ p{word-spacing: 15px;}
   content:'❌';
   margin-left: 270px;
 }
-.clickhere{
-  background-color:lightblue;
-  color: mediumblue;
-  text-decoration: underline;
-  padding: 0.3em 0.5em;
-}
-.addbtn{
-  padding: 0.3em 0.5em;
-}
+
 #loginplayers{
   display: block;
 }
