@@ -32,15 +32,7 @@ button {
   border: solid 3px white;
   font-size: 20px;
 }
-tr,td{
-  border: solid 15px white;
-  font-size: 30px;
-}
-#trb{
-  width: 60%;
-  background-color: palevioletred;
-  font-family:fantasy;
-}
+
 #tbl{
   width: 100%;
   margin-top: 10px;

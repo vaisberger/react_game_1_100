@@ -4,58 +4,57 @@ import Board from './Board.jsx';
 
 export function Players() {
   const [pname, setName] = useState('');
-  const [scores, setScores] = useState([]);
   const [playerLst, setList] = useState([]);
   const [Ply, setLocalItems] = useState(JSON.parse(localStorage.getItem("players")) || []);
-  const [players, setPlayers] = useState(() => {
-    // Retrieve users from local storage or initialize with an empty array
-    const savedPlayers = localStorage.getItem('players');
-    return savedPlayers ? JSON.parse(savedPlayers) : [];
-  });
+  let val=[];
+  let index = -1;
 
   //shows the new added player
   const addTblRow = () => {
+    if (Ply !== null) {
+      index = Ply.findIndex(elem => elem.pname === pname);
+    }
+    if (index !== -1){
+      val=Ply[index].scores;
+    }
     document.getElementById('tbl').style.visibility = "visible";
     const row = document.createElement('tr');
     row.id = "trp"
-    row.innerHTML = '<p>Player: ' + pname  + ' Scores: ' + scores + '<p>'
+    row.innerHTML = '<p>Player: ' + pname  + ' Scores: ' + val + '<p>'
     document.getElementById('tbl').appendChild(row);
   }
 
   //submits the new player
+
   const handleSubmit = (event) => {
     event.preventDefault();
-    let index = -1;
     if (Ply !== null) {
       index = Ply.findIndex(elem => elem.pname === pname);
     }
-    if (index !== -1) {                                            /**לבדוק שעובד */
-      setScores(Ply[index].scores);
-    } else {
+    if (index == -1){
       const newPlayer = {
         id: Ply.length + 1,
         pname,
         scores
       };
-      const updatedPlayers = [...players, newPlayer];
-      setPlayers(updatedPlayers);
+      const updatedPlayers = [...Ply, newPlayer];
       localStorage.setItem('players', JSON.stringify(updatedPlayers));
+    }else{
+      val=Ply[index].scores;
     }
     // Clear the input fields
-    setName('');
-    setScores([])
     exit('newPlayer');
     addTblRow();
-
     const currentList = [...playerLst];
     // Add a new item to the list
     currentList.push({
       index: playerLst.length + 1,
       pname: pname,
-      scores: scores,
+      scores: val,
     });
     // Update the state with the new list
     setList(currentList);
+    setName("");
   }
 const handelstart=(id1,id2)=>{
     exitopen(id1,id2);
@@ -81,7 +80,7 @@ const avr=(p)=>{
                 <input type="text" value={pname} onChange={e => setName(e.target.value)} required />
               </div>
               <div className="grid-item" >
-                <button className="addbtn" type="submit">Add</button>
+                <button className="addbtn" type="submit" >Add</button>
               </div>
             </form>
           </div>
