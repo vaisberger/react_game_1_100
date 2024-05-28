@@ -6,6 +6,7 @@ export function Players() {
   const [pname, setName] = useState('');
   const [scores, setScores] = useState([]);
   const [playerLst, setList] = useState([]);
+  const [Ply, setLocalItems] = useState(JSON.parse(localStorage.getItem("players")) || []);
   const [players, setPlayers] = useState(() => {
     // Retrieve users from local storage or initialize with an empty array
     const savedPlayers = localStorage.getItem('players');
@@ -24,16 +25,15 @@ export function Players() {
   //submits the new player
   const handleSubmit = (event) => {
     event.preventDefault();
-    const Players = JSON.parse(localStorage.getItem('players'));
     let index = -1;
-    if (Players !== null) {
-      index = Players.findIndex(elem => elem.pname === pname);
+    if (Ply !== null) {
+      index = Ply.findIndex(elem => elem.pname === pname);
     }
     if (index !== -1) {                                            /**לבדוק שעובד */
-      setScores(Players[index].scores);
+      setScores(Ply[index].scores);
     } else {
       const newPlayer = {
-        id: players.length + 1,
+        id: Ply.length + 1,
         pname,
         scores
       };
@@ -43,6 +43,7 @@ export function Players() {
     }
     // Clear the input fields
     setName('');
+    setScores([])
     exit('newPlayer');
     addTblRow();
 
@@ -70,17 +71,17 @@ const avr=(p)=>{
   return (
     <div>
       <div id="loginplayers">
-        <button class="start" type='button' onClick={() => handelstart('loginplayers', 'game')}>Start game </button>
-        <div class="grid-container">
-          <div class="grid-item">
+        <button className="start" type='button' onClick={() => handelstart('loginplayers', 'game')}>Start game </button>
+        <div className="grid-container">
+          <div className="grid-item">
             <form id="newPlayer" onSubmit={handleSubmit}>
               <span className="exit" onClick={() => exit('newPlayer')}></span>
-              <div class="input-group">
+              <div className="input-group">
                 <label>Name: </label>
                 <input type="text" value={pname} onChange={e => setName(e.target.value)} required />
               </div>
-              <div class="grid-item" >
-                <button class="addbtn" type="submit">Add</button>
+              <div className="grid-item" >
+                <button className="addbtn" type="submit">Add</button>
               </div>
             </form>
           </div>

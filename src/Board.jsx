@@ -23,6 +23,7 @@ export function Board({ value1, value2, value3 }) {
             currentList.push(steps + ' ');
             // Update the state with the new list
             setScores(currentList);
+            saveLocalScore();
             exitopen(pname+'1',pname)
         }
         saveLocalScore();
@@ -52,6 +53,7 @@ export function Board({ value1, value2, value3 }) {
         Updatestep();
     }
     const out =()=>{
+      saveLocalScore();
       exit(pname+'2');
     }
     const newGame =()=>{
