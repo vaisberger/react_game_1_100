@@ -26,6 +26,7 @@ export function Game() {
         } else {
             alert("Player is already in");
         }
+        exit('newPlayer');
     }
 
     function handleGameEnd() {
@@ -53,14 +54,19 @@ export function Game() {
         playersWithAverage.sort((a, b) => a.averageScore - b.averageScore);
         return playersWithAverage.slice(0, 3);
     }
-
-
+    function open(id) {
+        document.getElementById(id).style.display = "block";
+    }
+    function exit(id) {
+        document.getElementById(id).style.display = "none";
+    }
     return (
-        <>
+        < >
             <div className={classes.gameContainer}>
                 <h1 className={classes.title}>Get to 100</h1>
                 <button className={classes.gameButton} onClick={() => setShowWinners(!showWinners)}>show winners</button>
                 <button className={classes.gameButton} onClick={() => { setIsGameOn(!isGameOn) }}>start game</button>
+                <button className={classes.gameButton} onClick={() => open('newPlayer')}>Add Player</button>
                 {showWinners ? (
                     <>
                         <h1>The top Players Are:</h1>
@@ -75,27 +81,28 @@ export function Game() {
                         {!isGameOn && (
                             <div className={classes.container}>
                                 <div className={classes.item}>
-                                    <form className={classes.newPlayer} onSubmit={handleNewPlayerSubmit}>
+                                    <form id="newPlayer" className={classes.newPlayer} onSubmit={handleNewPlayerSubmit}>
+                                        <span className={classes.exit} onClick={() => exit('newPlayer')}></span>
                                         <input
                                             type="text"
                                             placeholder="Enter player's name"
                                             required
                                         />
                                         <div className={classes.item}>
-                                            <button className={classes.gameButton} type="submit">Add Player</button>
+                                            <button className={classes.gameButton} type="submit">Add</button>
                                         </div>
                                     </form>
                                 </div>
                             </div>
                         )}
                         {!isGameOn && CurrentPlayers.length > 0 && (
-                            <div>
-                                {CurrentPlayers.map((player, index) => (
-                                    <div key={index}>
-                                        <p>Name: {player.pname}, Scores: {player.scores}</p>
-                                    </div>
-                                ))}
-                            </div>
+                            <table className={classes.tbl}>
+                                    {CurrentPlayers.map((player, index) => (
+                                        <tr className={classes.trp} key={index}>
+                                            <p className={classes.p}>Name: {player.pname} Scores: {player.scores}</p>
+                                        </tr>
+                                    ))}
+                            </table>
                         )}
 
                         {isGameOn && (
