@@ -18,7 +18,7 @@ export function Game() {
             if (playerExists)
                 setCurrentPlayers([...CurrentPlayers, playerExists]);
             else {
-                const newPlayer = { pname: playerName, scores: [] };
+                const newPlayer = { pname: playerName, scores: [], in: true };
                 localStorage.setItem("players", JSON.stringify([...StoragedPlayers, newPlayer]));
                 setStoragedPlayers([...StoragedPlayers, newPlayer]);
                 setCurrentPlayers([...CurrentPlayers, newPlayer]);
@@ -28,14 +28,26 @@ export function Game() {
         }
         exit('newPlayer');
     }
+    
+     function handleremove(pname){
+        let index = CurrentPlayers.findIndex(elem => elem.pname === pname);
+       CurrentPlayers[index].in=false;
+       //handleGameEnd();
+     }
 
     function handleGameEnd() {
-        setIsGameOn(false);
-        setCurrentPlayers([]);
+        if(CurrentPlayers.length===0){
+            setIsGameOn(false);
+            setCurrentPlayers([]);
+        }
     }
 
     function handleNextTurn() {
-        setCurrentTurn(currentTurn => (currentTurn + 1) % CurrentPlayers.length);
+
+        if(CurrentPlayers[(currentTurn + 1) % CurrentPlayers.length].in===false){
+            setCurrentTurn(currentTurn => (currentTurn + 2) % CurrentPlayers.length);
+        }else{
+        setCurrentTurn(currentTurn => (currentTurn + 1) % CurrentPlayers.length);}
     }
 
 
@@ -60,13 +72,19 @@ export function Game() {
     function exit(id) {
         document.getElementById(id).style.display = "none";
     }
+    function startgame(){
+        setIsGameOn(!isGameOn);
+        exit('main');
+    }
     return (
         < >
             <div className={classes.gameContainer}>
                 <h1 className={classes.title}>Get to 100</h1>
                 <button className={classes.gameButton} onClick={() => setShowWinners(!showWinners)}>show winners</button>
-                <button className={classes.gameButton} onClick={() => { setIsGameOn(!isGameOn) }}>start game</button>
+                <div id='main'>
+                <button className={classes.gameButton} onClick={startgame}>start game</button>
                 <button className={classes.gameButton} onClick={() => open('newPlayer')}>Add Player</button>
+                </div>
                 {showWinners ? (
                     <>
                         <h1>The top Players Are:</h1>
@@ -97,19 +115,23 @@ export function Game() {
                         )}
                         {!isGameOn && CurrentPlayers.length > 0 && (
                             <table className={classes.tbl}>
-                                    {CurrentPlayers.map((player, index) => (
-                                        <tr className={classes.trp} key={index}>
-                                            <p className={classes.p}>Name: {player.pname} Scores: {player.scores}</p>
-                                        </tr>
-                                    ))}
+                                {CurrentPlayers.map((player, index) => (
+                                    <tr className={classes.trp} key={index}>
+                                        <p className={classes.p}>Name: {player.pname} Scores: {player.scores}</p>
+                                    </tr>
+                                ))}
                             </table>
                         )}
 
                         {isGameOn && (
                             <>
-                                {CurrentPlayers.map((player, index) => (
-                                    <Board player={player} endGame={handleGameEnd} isMyTurn={currentTurn === index} moveTurn={handleNextTurn} />
-                                ))}
+                                <table className={classes.board}>
+                                    <tr>
+                                        {CurrentPlayers.map((player, index) => (
+                                            <Board player={player} removeMe={()=>handleremove(player.pname)}  isMyTurn={currentTurn === index} moveTurn={handleNextTurn} />
+                                        ))}
+                                    </tr>
+                                </table>
                             </>
                         )}
                     </>
