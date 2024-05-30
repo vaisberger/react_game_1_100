@@ -80,7 +80,6 @@ export function Game() {
         < >
             <div className={classes.gameContainer}>
                 <h1 className={classes.title}>Get to 100</h1>
-                <button className={classes.gameButton} onClick={() => setShowWinners(!showWinners)}>show winners</button>
                 <div id='main'>
                 <button className={classes.gameButton} onClick={startgame}>start game</button>
                 <button className={classes.gameButton} onClick={() => open('newPlayer')}>Add Player</button>
