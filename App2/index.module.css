@@ -1,6 +1,7 @@
-body{
+body {
   line-height: 1.5;
-
+  background-color: black;
+  align-items: center;
 }
 
 .gameContainer {
@@ -8,35 +9,106 @@ body{
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-left: 415px;
+  margin-left: 600px;
 }
-.title{
-  font-family:fantasy;
-  font-size: 4rem;
+
+.title {
+  font-family: fantasy;
+  font-size: 5rem;
   text-transform: uppercase;
   animation: glow 2s ease-in-out infinite alternate;
 
 }
 
+.newPlayer {
+  background-color: lightblue;
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  padding: 15px;
+  width: 300px;
+  max-width: 90%;
+  margin: 50px auto;
+  position: relative;
+  z-index: 10;
+  font-size: 20px;
+  display: none;
+}
+
 .gameButton {
   border-radius: 8px;
+  margin-top: 10px;
   border: 1px solid transparent;
+  padding: 0.6em 1.2em;
   font-size: 1em;
-  background-color: lightgrey;
-
+  font-weight: 15px;
+  font-family: inherit;
+  background-color: #87f2fe;
+  cursor: pointer;
+  transition: border-color 0.25s;
+  margin-left: 4px;
 }
 
+.container {
+  display: grid;
+  grid-template-columns: auto auto;
+  height: 100px;
+}
 
+.item {
+  padding: 20px;
+  font-size: 1em;
+  text-align: center;
+}
 
+.p {
+  word-spacing: 15px;
+}
+
+.exit {
+  cursor: pointer;
+}
+
+.exit::after {
+  content: '❌';
+  margin-left: 270px;
+}
+
+.tbl {
+  width: 300%;
+  margin-top: 10px;
+  background-color:  white;
+  font-family: fantasy;
+  border: solid 3px #5dc9d5;
+}
+.board{
+  width: 300%;
+  background-color: pink;
+  font-family:fantasy;
+  border: solid 3px white;
+  font-size: 20px;
+  margin-top: 15px;;
+}
+.trp {
+  width: 60%;
+  background-color: #5dc9d5;
+  font-family: fantasy;
+  color: black;
+  text-align: center;
+  font-size: 25px;
+}
+.box{
+  border:solid 3px white;
+  text-align: center;
+}
+.menu{
+  display: none;
+}
 @keyframes glow {
   from {
-    text-shadow: 0 0 30px #3FA649;
+    text-shadow: 0 0 30px #52d0de;
   }
+
   to {
-    text-shadow: 0 0 50px #3FA649, 0 0 10px #3FA649;
+    text-shadow: 0 0 50px #5dc9d5, 0 0 10px #87f2fe;
   }
 }
-
-
-
-
