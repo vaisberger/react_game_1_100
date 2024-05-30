@@ -30,6 +30,8 @@ function KeyBoard(props){
     return (
         
         <div className={classes.keyboardContainer}>
+        <button onClick={props.undo}>Undo</button>
+
             <button onClick={props.clearText}>clear</button>
                 <div className={classes.keyboardContainer}>
             <input type="color" onChange={handleColorChange} />

@@ -87,12 +87,14 @@ export function Game() {
                 </div>
                 {showWinners ? (
                     <>
+                    <div className={classes.winners}>
                         <h1>The top Players Are:</h1>
                         <ol>
                             {topPlayers(StoragedPlayers).map((player, index) => (
                                 <li key={index}>{player.pname} - Average Score: {player.averageScore}</li>
                             ))}
                         </ol>
+                        </div>
                     </>
                 ) : (
                     <>

@@ -3,7 +3,13 @@ body {
   background-color: black;
   align-items: center;
 }
+.winners{
 
+  background-color: black;
+  align-items: center;
+  color:white;
+
+}
 .gameContainer {
   display: flex;
   flex-direction: column;
