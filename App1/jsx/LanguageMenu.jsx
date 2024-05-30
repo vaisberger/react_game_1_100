@@ -11,6 +11,7 @@ function LanguageMenu(props){
                     <button className={classes.languageButton} onClick={()=>props.onLanguageChanged('Hebrew')}>Hebrew</button>
                     <button className={classes.languageButton} onClick={()=>props.onLanguageChanged('Chinese')}>Chinese</button>
                     
+                    
                 </div>
             )}
         </div>

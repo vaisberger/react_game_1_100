@@ -9,6 +9,9 @@ function TextEditorApp(props){
     const [displayedText,setDisplayedText]=useState('');
     const [Language,setLanguage]=useState('English');
     const [textColor, setTextColor] = useState('black');
+    const [font, setFont] = useState('Arial');
+    const [fontSize, setFontSize] = useState(16);
+    const [textCase, setTextCase] = useState('none');
 
 
 
@@ -19,19 +22,28 @@ function TextEditorApp(props){
         setDisplayedText(displayedText + newChar);
         }
     };
-    const handleColorChange = (event) => {
-      setTextColor(event.target.value);
+    const handleFontChange = (selectedFont) => {
+      setFont(selectedFont);
   };
 
+  const handleSizeChange = (selectedSize) => {
+      setFontSize(selectedSize);
+  };
 
+  const handleTextCaseChange = (selectedCase) => {
+    setTextCase(selectedCase);
+};
+function handleClearText(){
+  setDisplayedText('');
 
+}
 
   return (<>
     <button onClick={()=>props.BackToWelcome(false)}> go Back To Welcome</button>
     <Header/>
-    <Screen text={displayedText}  color={textColor} />
+    <Screen text={displayedText}  color={textColor}  font={font} fontSize={fontSize} textCase={textCase}/>
     <div className={classes.container}>
-    <KeyBoard onTextChanges={onTextChanges} currentLanguage={Language}/>
+    <KeyBoard onTextChanges={onTextChanges}clearText={handleClearText} currentLanguage={Language} changeColorTo={setTextColor} changeFontTo={handleFontChange} changeSizeTo={handleSizeChange}  changeCaseTo={handleTextCaseChange} />
     <LanguageMenu className={classes.languageMenu } onLanguageChanged={setLanguage}/>
     
     </div>
